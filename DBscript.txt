@@ -1,0 +1,91 @@
+DROP TABLE `Users`;
+DROP TABLE `Videos`;
+DROP TABLE `VideosByChannel`;
+DROP TABLE `UserFriends`;
+DROP TABLE `FavoriteVideosByUser`;
+DROP TABLE `Channels`;
+
+CREATE TABLE `Users` (
+	`ID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`Name`	TEXT NOT NULL,
+	`Password`	TEXT NOT NULL,
+	`Email`	TEXT NOT NULL,
+	`Token`	TEXT NOT NULL
+);
+
+CREATE TABLE `Videos` ( 
+	`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`Title` TEXT NOT NULL,
+	`Description` TEXT 
+);
+
+CREATE TABLE `VideosByChannel` (
+	`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+	`VideoID` INTEGER NOT NULL, 
+	`ChannelID` INTEGER NOT NULL 
+);
+
+CREATE TABLE `UserFriends` ( 
+	`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`UserID` INTEGER NOT NULL, 
+	`FriendID` INTEGER NOT NULL 
+);
+
+CREATE TABLE `FavoriteVideosByUser` (
+	`ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+	`UserID` INTEGER NOT NULL, 
+	`VideoID` INTEGER NOT NULL 
+);
+
+CREATE TABLE `Channels` (
+	`ID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`Title`	TEXT NOT NULL,
+	`Description`	TEXT NOT NULL
+);
+
+INSERT INTO `Users` (`Name`, `Password`, `Email`,`Token`)
+VALUES ("Lalli", "Passi", "lalli@lalli.com", "04jj89skjg03jf8");
+INSERT INTO `Users` (`Name`, `Password`, `Email`,`Token`)
+VALUES ("Siggi", "Sig123", "Siggi@gmail.com", "skjdhnmsg03jf8");
+INSERT INTO `Users` (`Name`, `Password`, `Email`,`Token`)
+VALUES ("Halldóra Guðjóns", "Halla567", "hallag@gmail.com", "slkjsdaoi89jf8");
+
+INSERT INTO `Videos` (`Title`, `Description`)
+VALUES ("The long jump", "At the olimpics 1987");
+INSERT INTO `Videos` (`Title`, `Description`)
+VALUES ("In the jungle cover", "me singing");
+INSERT INTO `Videos` (`Title`)
+VALUES ("A great goal");
+
+INSERT INTO `VideosByChannel` (`VideoID`, `ChannelID`)
+VALUES (1, 3);
+INSERT INTO `VideosByChannel` (`VideoID`, `ChannelID`)
+VALUES (2, 3);
+INSERT INTO `VideosByChannel` (`VideoID`, `ChannelID`)
+VALUES (3, 2);
+
+INSERT INTO `UserFriends` (`UserID`, `FriendID`)
+VALUES (1, 2);
+INSERT INTO `UserFriends` (`UserID`, `FriendID`)
+VALUES (1, 3);
+INSERT INTO `UserFriends` (`UserID`, `FriendID`)
+VALUES (2, 3);
+
+INSERT INTO `FavoriteVideosByUser` (`UserID`, `VideoID`)
+VALUES (1, 1);
+INSERT INTO `FavoriteVideosByUser` (`UserID`, `VideoID`)
+VALUES (2, 2);
+INSERT INTO `FavoriteVideosByUser` (`UserID`, `VideoID`)
+VALUES (3, 1);
+
+
+INSERT INTO `Channels` (`Title`, `Description`)
+VALUES ("Funny videos", "This channel shows funny videos.");
+INSERT INTO `Channels` (`Title`, `Description`)
+VALUES ("Football", "Everthing from goals to cards.");
+INSERT INTO `Channels` (`Title`, `Description`)
+VALUES ("The hunting channel", "People shooting guns and they love it.");
+
+
+
+

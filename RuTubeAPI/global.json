@@ -1,0 +1,4 @@
+
+{
+	"projects": [ "API", "Models", "Services", "Tests" ]
+}
